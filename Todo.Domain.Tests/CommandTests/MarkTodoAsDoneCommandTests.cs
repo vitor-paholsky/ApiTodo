@@ -7,9 +7,10 @@ namespace Todo.Domain.Tests.CommandTests;
 [TestClass]
     public class MarkTodoAsDoneCommandTests
     {    
-        private readonly MarkTodoAsDoneCommand _invalidCommand = new MarkTodoAsDoneCommand(default(Guid), "vitor paholsky");
+        private readonly MarkTodoAsDoneCommand _validCommand = new MarkTodoAsDoneCommand(default(Guid), "vitor paholsky");
+        private readonly MarkTodoAsDoneCommand _invalidCommand = new MarkTodoAsDoneCommand(default(Guid), "");
 
-        public MarkTodoAsDoneCommandTests()
+    public MarkTodoAsDoneCommandTests()
         {
             _invalidCommand.Validate();
         }
@@ -17,6 +18,12 @@ namespace Todo.Domain.Tests.CommandTests;
         [TestMethod]
         public void Dado_um_comando_invalido()
         {
-            Assert.AreEqual(_invalidCommand.Valid, true);
+            Assert.AreEqual(_invalidCommand.Valid, false);
+        }
+
+        [TestMethod]
+        public void Dado_um_comando_valido()
+        {
+            Assert.AreEqual(_validCommand.Valid, true);
         }
 }

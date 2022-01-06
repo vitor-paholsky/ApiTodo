@@ -14,6 +14,11 @@ namespace Todo.Domain.Tests.Repositories
         {            
         }
 
+        public TodoItem GetById(Guid id, string email)
+        {
+            return new TodoItem("titulo aqui", DateTime.Now, "Vitor Paholsky");
+        }
+
         public void Update(TodoItem todo)
         {            
         }

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Todo.Domain.Handlers;
 using Todo.Domain.Infra.Contexts;
+using Todo.Domain.Infra.Repositories;
 using Todo.Domain.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

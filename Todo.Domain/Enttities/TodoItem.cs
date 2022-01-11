@@ -35,5 +35,6 @@ namespace Todo.Domain.Enttities
         {
             Title = title;
         }
+       
     }
 }

@@ -28,7 +28,7 @@ namespace Todo.Domain.Api.Controllers
             return repository.GetAllDone("VitorPaholsky");
         }
 
-        [Route("undone/today")]
+        [Route("undone")]
         [HttpGet]
         public IEnumerable<TodoItem> GetAllUndone(
            [FromServices] ITodoRepository repository
@@ -67,7 +67,7 @@ namespace Todo.Domain.Api.Controllers
              );
         }
 
-        [Route("unddone/tomorrow")]
+        [Route("undone/tomorrow")]
         [HttpGet]
         public IEnumerable<TodoItem> GetUndoneForTomorrow(
           [FromServices] ITodoRepository repository
